@@ -1,8 +1,41 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/custom-provider-lab/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "builder": "rspack",
+    "tsConfigPath": "apps/custom-provider-lab/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/custom-provider-lab",
+  "projects": {
+    "admin": {
+      "type": "application",
+      "root": "apps/admin",
+      "entryFile": "main",
+      "sourceRoot": "apps/admin/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/admin/tsconfig.app.json"
+      }
+    },
+    "custom-provider-lab": {
+      "type": "application",
+      "root": "apps/custom-provider-lab",
+      "entryFile": "main",
+      "sourceRoot": "apps/custom-provider-lab/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/custom-provider-lab/tsconfig.app.json"
+      }
+    },
+    "database": {
+      "type": "library",
+      "root": "libs/database",
+      "entryFile": "index",
+      "sourceRoot": "libs/database/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/database/tsconfig.lib.json"
+      }
+    }
   }
 }

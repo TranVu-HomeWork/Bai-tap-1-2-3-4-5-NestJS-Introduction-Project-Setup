@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { LoggerService } from '../core/logger/logger.service.js';
-import { DatabaseService } from '../core/database/database.service.js';
+import { DatabaseService } from '@app/database';
 
 @Injectable()
 export class ProductsService implements OnModuleInit {
